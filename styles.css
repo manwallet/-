@@ -1,0 +1,365 @@
+/* 全局样式 */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f5f5f7;
+    padding: 20px;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+h1 {
+    color: #333;
+    font-size: 28px;
+}
+
+/* 标签页样式 */
+.tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.tab-btn {
+    background: none;
+    border: none;
+    padding: 10px 20px;
+    margin: 0 5px;
+    font-size: 16px;
+    cursor: pointer;
+    color: #666;
+    border-bottom: 3px solid transparent;
+    transition: all 0.3s;
+}
+
+.tab-btn:hover {
+    color: #0070c9;
+}
+
+.tab-btn.active {
+    color: #0070c9;
+    border-bottom: 3px solid #0070c9;
+}
+
+.tab-content {
+    padding: 10px;
+}
+
+.tab-pane {
+    display: none;
+}
+
+.tab-pane.active {
+    display: block;
+}
+
+/* 控制区域 */
+.controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+select {
+    padding: 8px 12px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+    background-color: #fff;
+}
+
+.study-buttons, .manage-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+button {
+    padding: 8px 15px;
+    background-color: #0070c9;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #005ba1;
+}
+
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+button.danger {
+    background-color: #ff3b30;
+}
+
+button.danger:hover {
+    background-color: #d9302c;
+}
+
+/* 闪卡样式 */
+.flashcard-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.flashcard {
+    width: 100%;
+    max-width: 500px;
+    height: 300px;
+    perspective: 1000px;
+    margin-bottom: 20px;
+}
+
+.flashcard-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.flashcard.flipped .flashcard-inner {
+    transform: rotateY(180deg);
+}
+
+.flashcard-front, .flashcard-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.flashcard-front {
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+.flashcard-back {
+    background-color: #e6f7ff;
+    color: #333;
+    transform: rotateY(180deg);
+}
+
+.card-text {
+    font-size: 24px;
+    word-wrap: break-word;
+    overflow-y: auto;
+    max-height: 100%;
+    padding: 10px;
+}
+
+.card-progress {
+    margin-bottom: 15px;
+    font-size: 16px;
+    color: #666;
+}
+
+.card-controls {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+/* 记忆评分 */
+.memory-rating {
+    margin-top: 15px;
+    text-align: center;
+}
+
+.rating-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+}
+
+.rating-btn {
+    padding: 6px 10px;
+    font-size: 12px;
+}
+
+/* 表单样式 */
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+/* 批量导入 */
+.batch-import {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+.batch-import h3 {
+    margin-bottom: 10px;
+}
+
+.batch-import p {
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #666;
+}
+
+#batch-import-content {
+    min-height: 150px;
+}
+
+/* 卡片列表 */
+.search-bar {
+    margin-bottom: 15px;
+}
+
+.cards-list {
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.card-item {
+    padding: 15px;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    background-color: #fff;
+    transition: background-color 0.3s;
+}
+
+.card-item:hover {
+    background-color: #f9f9f9;
+}
+
+.card-item-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.card-item-content {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.card-item-front, .card-item-back {
+    flex: 1;
+    padding: 10px;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+    margin: 0 5px;
+}
+
+.card-item-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.card-item-deck {
+    font-size: 12px;
+    color: #666;
+    background-color: #eee;
+    padding: 3px 8px;
+    border-radius: 10px;
+    display: inline-block;
+}
+
+.card-item-notes {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #666;
+    font-style: italic;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+    
+    .flashcard {
+        height: 250px;
+    }
+    
+    .card-text {
+        font-size: 20px;
+    }
+    
+    .tabs {
+        flex-wrap: wrap;
+    }
+    
+    .controls {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    select, .study-buttons, .manage-buttons {
+        width: 100%;
+    }
+    
+    .card-item-content {
+        flex-direction: column;
+    }
+    
+    .card-item-front, .card-item-back {
+        margin: 5px 0;
+    }
+}

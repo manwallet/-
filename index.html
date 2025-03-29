@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>英语学习闪卡</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>英语学习闪卡</h1>
+        </header>
+        
+        <div class="tabs">
+            <button class="tab-btn active" data-tab="study">学习</button>
+            <button class="tab-btn" data-tab="add">添加闪卡</button>
+            <button class="tab-btn" data-tab="manage">管理闪卡</button>
+        </div>
+        
+        <div class="tab-content">
+            <!-- 学习模式 -->
+            <div class="tab-pane active" id="study">
+                <div class="controls">
+                    <select id="deck-select">
+                        <option value="all">所有闪卡</option>
+                    </select>
+                    <div class="study-buttons">
+                        <button id="shuffle-btn">随机排序</button>
+                        <button id="reset-progress-btn">重置进度</button>
+                    </div>
+                </div>
+                
+                <div class="flashcard-container">
+                    <div class="flashcard" id="current-card">
+                        <div class="flashcard-inner">
+                            <div class="flashcard-front">
+                                <p class="card-text">点击"开始学习"按钮开始</p>
+                            </div>
+                            <div class="flashcard-back">
+                                <p class="card-text"></p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card-progress">
+                        <span id="current-index">0</span>/<span id="total-cards">0</span>
+                    </div>
+                    
+                    <div class="card-controls">
+                        <button id="start-btn">开始学习</button>
+                        <button id="flip-btn" disabled>翻转</button>
+                        <button id="prev-btn" disabled>上一个</button>
+                        <button id="next-btn" disabled>下一个</button>
+                    </div>
+                    
+                    <div class="memory-rating" style="display: none;">
+                        <p>记忆程度：</p>
+                        <div class="rating-buttons">
+                            <button class="rating-btn" data-rating="1">不认识</button>
+                            <button class="rating-btn" data-rating="2">有点印象</button>
+                            <button class="rating-btn" data-rating="3">认识</button>
+                            <button class="rating-btn" data-rating="4">熟悉</button>
+                            <button class="rating-btn" data-rating="5">完全掌握</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 添加闪卡 -->
+            <div class="tab-pane" id="add">
+                <form id="add-card-form">
+                    <div class="form-group">
+                        <label for="front-content">英文 (正面):</label>
+                        <textarea id="front-content" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="back-content">中文 (背面):</label>
+                        <textarea id="back-content" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="deck-name">分类:</label>
+                        <input type="text" id="deck-name" list="deck-list" placeholder="输入或选择分类">
+                        <datalist id="deck-list"></datalist>
+                    </div>
+                    <div class="form-group">
+                        <label for="notes">笔记 (可选):</label>
+                        <textarea id="notes"></textarea>
+                    </div>
+                    <button type="submit">添加闪卡</button>
+                </form>
+                <div class="batch-import">
+                    <h3>批量导入</h3>
+                    <p>格式: 每行一个闪卡，英文和中文用制表符或至少3个空格分隔</p>
+                    <textarea id="batch-import-content" placeholder="例如:
+apple    苹果
+book    书
+cat    猫"></textarea>
+                    <div class="form-group">
+                        <label for="batch-deck-name">分类:</label>
+                        <input type="text" id="batch-deck-name" list="deck-list" placeholder="输入或选择分类">
+                    </div>
+                    <button id="batch-import-btn">批量导入</button>
+                </div>
+            </div>
+            
+            <!-- 管理闪卡 -->
+            <div class="tab-pane" id="manage">
+                <div class="controls">
+                    <select id="manage-deck-select">
+                        <option value="all">所有闪卡</option>
+                    </select>
+                    <div class="manage-buttons">
+                        <button id="export-btn">导出闪卡</button>
+                        <button id="delete-all-btn" class="danger">删除所有</button>
+                    </div>
+                </div>
+                <div class="search-bar">
+                    <input type="text" id="search-input" placeholder="搜索闪卡...">
+                </div>
+                <div class="cards-list" id="cards-list">
+                    <!-- 闪卡列表将通过JavaScript动态生成 -->
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
